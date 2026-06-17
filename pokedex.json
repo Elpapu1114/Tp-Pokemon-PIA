@@ -1,0 +1,92 @@
+[
+    {
+        "id": 25,
+        "nombre": "Pikachu",
+        "tipo": "Electrico",
+        "pc": 55
+    },
+    {
+        "id": 4,
+        "nombre": "Charmander",
+        "tipo": "Fuego",
+        "pc": 52
+    },
+    {
+        "id": 64,
+        "nombre": "Kadabra",
+        "tipo": "Psiquico",
+        "pc": 35
+    },
+    {
+        "id": 94,
+        "nombre": "Gengar",
+        "tipo": "Fantasma",
+        "pc": 65
+    },
+    {
+        "id": 133,
+        "nombre": "Eevee",
+        "tipo": "Normal",
+        "pc": 55
+    },
+    {
+        "id": 150,
+        "nombre": "Mewtwo",
+        "tipo": "Psiquico",
+        "pc": 110
+    },
+    {
+        "id": 1,
+        "nombre": "Bulbasaur",
+        "tipo": "Planta",
+        "pc": 49
+    },
+    {
+        "id": 7,
+        "nombre": "Squirtle",
+        "tipo": "Agua",
+        "pc": 48
+    },
+    {
+        "id": 6,
+        "nombre": "Charizard",
+        "tipo": "Fuego",
+        "pc": 84
+    },
+    {
+        "id": 39,
+        "nombre": "Jigglypuff",
+        "tipo": "Normal",
+        "pc": 45
+    },
+    {
+        "id": 52,
+        "nombre": "Meowth",
+        "tipo": "Normal",
+        "pc": 40
+    },
+    {
+        "id": 54,
+        "nombre": "Psyduck",
+        "tipo": "Agua",
+        "pc": 50
+    },
+    {
+        "id": 143,
+        "nombre": "Snorlax",
+        "tipo": "Normal",
+        "pc": 85
+    },
+    {
+        "id": 149,
+        "nombre": "Dragonite",
+        "tipo": "Dragon",
+        "pc": 100
+    },
+    {
+        "id": 151,
+        "nombre": "Mew",
+        "tipo": "Psiquico",
+        "pc": 100
+    }
+]
