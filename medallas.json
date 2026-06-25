@@ -1,10 +1,16 @@
-[
-    "Medalla Roca",
-    "Medalla Agua",
-    "Medalla Electrico",
-    "Medalla Planta",
-    "Medalla Veneno",
-    "Medalla Psiquico",
-    "Medalla Fuego",
-    "Medalla Tierra"
-]
+{
+    "todas": [
+        "Medalla Roca",
+        "Medalla Agua",
+        "Medalla Electrico",
+        "Medalla Planta",
+        "Medalla Veneno",
+        "Medalla Psiquico",
+        "Medalla Fuego",
+        "Medalla Tierra"
+    ],
+    "obtenidas": [
+        "Medalla Roca",
+        "Medalla Agua"
+    ]
+}
