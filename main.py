@@ -467,35 +467,43 @@ while opcion != "12":
     elif opcion == "5":
         limpiar()
         print()
-        print("POKEDEX NACIONAL")
-        print()
-        pokedex.mostrar()
+        print("Un Pokemon aparecio")
         print()
 
-        try:
-            id_captura = int(input("Ingresa el ID del Pokemon a capturar: ").strip())
-        except ValueError:
-            print("\nID invalido")
-            input("Presiona Enter para continuar")
+        todos = pokedex.values()
+        salvaje = random.choice(todos)
+
+        print(f"Es un {salvaje.nombre} ({salvaje.tipo}) | PC: {salvaje.poder_combate}")
+        print()
+
+        intentar = input("Querés intentar atraparlo? (s/n): ").strip().lower()
+
+        if intentar != "s":
+            print("\nDejaste escapar al Pokemon")
+            input("\nPresiona Enter para continuar")
             limpiar()
             continue
 
-        encontrado = pokedex.obtener(id_captura)
-        if encontrado is None:
-            print("\nNo existe un Pokemon con ese ID")
-        else:
-            ids_equipo = {p.id for p in equipo}
-            ids_pc = {p.id for p in pc.a_lista()}
-            if encontrado.id in ids_equipo or encontrado.id in ids_pc:
-                print(f"\n{encontrado.nombre} ya esta en tu equipo o PC")
+        ids_equipo = {p.id for p in equipo}
+        ids_pc = {p.id for p in pc.a_lista()}
+        if salvaje.id in ids_equipo or salvaje.id in ids_pc:
+            print(f"\nYa tenes un {salvaje.nombre} en tu equipo o PC")
+            input("\nPresiona Enter para continuar")
+            limpiar()
+            continue
+
+        print("\nTirando la pokeball", end="", flush=True)
+        time.sleep(1)
+        if random.random() < 0.65:
+            nuevo = Pokemon(salvaje.id, salvaje.nombre, salvaje.tipo, salvaje.poder_combate)
+            if len(equipo) < 6:
+                equipo.append(nuevo)
+                print(f"\nAtrapaste a {nuevo.nombre}. Fue añadido al equipo ({len(equipo)}/6)")
             else:
-                nuevo = Pokemon(encontrado.id, encontrado.nombre, encontrado.tipo, encontrado.poder_combate)
-                if len(equipo) < 6:
-                    equipo.append(nuevo)
-                    print(f"\n{nuevo.nombre} fue añadido al equipo! ({len(equipo)}/6)")
-                else:
-                    pc.agregar(nuevo)
-                    print(f"\nEquipo lleno. {nuevo.nombre} fue enviado a la PC")
+                pc.agregar(nuevo)
+                print(f"\nAtrapaste a {nuevo.nombre}. Equipo lleno, fue enviado a la PC")
+        else:
+            print(f"\n{salvaje.nombre} escapo. Mas suerte la proxima")
 
         input("\nPresiona Enter para continuar")
         limpiar()

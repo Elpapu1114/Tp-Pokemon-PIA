@@ -1,0 +1,27 @@
+MÓDULO 6 - ANÁLISIS DE COMPLEJIDAD
+
+1)
+
+En mi programa el Equipo Principal está implementado con un array, y cuando capturo un Pokémon hago un append() para agregarlo al final. Esa operación tiene una complejidad O(1) en la mayoría de los casos, porque simplemente se agrega al último lugar sin mover los demás elementos.
+
+La PC está implementada con una lista enlazada. Si el Pokémon se agregara al inicio, la complejidad también sería O(1), porque solo habría que crear el nuevo nodo y hacerlo apuntar al que antes era la cabeza.
+
+En mi implementación actual, igualmente, el método agregar() de la lista enlazada recorre toda la lista para agregar el Pokémon al final, así que termina siendo O(n). Pero si la consigna habla de agregarlo al inicio, sería O(1).
+
+2)
+
+La Pokédex la hice con un Hash Map porque es mucho más rápido para buscar un Pokémon usando su ID. Primero se calcula el hash y enseguida se sabe en qué bucket buscar, por lo que normalmente la búsqueda tarda O(1).
+
+Si hubiera usado una lista común de Python, tendría que recorrer los Pokémon uno por uno hasta encontrar el que tiene el ID buscado. En el peor caso tendría que revisar todos los elementos, así que la complejidad sería O(n).
+
+Por eso un Hash Map es una mejor opción cuando hay muchas búsquedas, porque hace que encontrarlas sea mucho más rápido.
+
+3)
+
+Si hubiera que ordenar una PC con 6.000 Pokémon, Bubble Sort sería bastante lento porque compara todos los elementos muchas veces. Su complejidad promedio y peor caso es O(n²), así que con una cantidad tan grande de Pokémon tardaría mucho.
+
+En cambio, Quick Sort tiene una complejidad promedio de O(n log n), por lo que ordena mucho más rápido listas grandes. Por eso en mi programa lo usé para ordenar por poder de combate.
+
+El peor caso de Quick Sort ocurre cuando el pivote elegido genera particiones muy desbalanceadas, por ejemplo si siempre queda el elemento más chico o el más grande. En esa situación también pasa a tener una complejidad O(n²).
+
+En resumen, para una PC con 6.000 Pokémon, Quick Sort es mucho más eficiente que Bubble Sort en casi todos los casos, aunque los dos comparten el mismo peor caso teórico.
