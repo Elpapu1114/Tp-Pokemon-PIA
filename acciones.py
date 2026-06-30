@@ -5,6 +5,7 @@ from pokemon import Pokemon
 from algoritmos import busqueda_lineal_equipo
 from PC import menu_ordenar_pc
 from utils import limpiar
+from algoritmos import busqueda_lineal_equipo, busqueda_binaria_pokedex
 
 
 GIMNASIOS = [
@@ -24,10 +25,53 @@ def ver_pokedex(pokedex):
     print()
     print("POKEDEX NACIONAL")
     print()
-    pokedex.mostrar()
+    print("1. Ver Pokedex completa")
+    print("2. Buscar Pokemon por ID")
+    print("3. Volver")
     print()
-    input("Presiona Enter para volver al menu")
-    limpiar()
+
+    sub = input("Opcion: ").strip()
+
+    if sub == "1":
+        limpiar()
+        print()
+        print("POKEDEX NACIONAL")
+        print()
+        pokedex.mostrar()
+        print()
+        input("Presiona Enter para volver al menu ")
+        limpiar()
+
+    elif sub == "2":
+        print()
+        try:
+            id_buscado = int(input("Ingresa el ID a buscar: ").strip())
+        except ValueError:
+            print("\nID invalido")
+            input("\nPresiona Enter para continuar ")
+            limpiar()
+            return
+
+        ids_ordenados = sorted(p.id for p in pokedex.values())
+        pos = busqueda_binaria_pokedex(ids_ordenados, id_buscado)
+
+        if pos != -1:
+            pokemon = pokedex.obtener(ids_ordenados[pos])
+            print(f"\nPokemon encontrado: {pokemon}")
+        else:
+            print(f"\nNo existe un Pokemon con ID {id_buscado} en la Pokedex")
+
+        input("\nPresiona Enter para continuar ")
+        limpiar()
+
+    elif sub == "3":
+        limpiar()
+        return
+
+    else:
+        print("\nOpcion invalida")
+        input("\nPresiona Enter para continuar ")
+        limpiar()
 
 
 def ver_equipo(equipo):
