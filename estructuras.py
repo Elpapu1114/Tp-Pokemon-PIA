@@ -1,5 +1,5 @@
 class HashMap:
-    def __init__(self, capacidad=27):
+    def __init__(self, capacidad=152):
         self.capacidad = capacidad
         self.buckets = [[] for _ in range(capacidad)]
 
